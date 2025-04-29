@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import chatRoutes from './chat.routes';
-// import userRoutes from './user.routes';
 
 const router = Router();
 
@@ -12,13 +11,11 @@ router.get('/', (req, res) => {
     version: '1.0.0',
     endpoints: {
       chat: '/api/v1/chat',
-      users: '/api/v1/users',
     },
   });
 });
 
 // Mount route modules
 router.use('/chat', chatRoutes);
-// router.use('/users', userRoutes);
 
-export default router;
+export { router as default };

@@ -6,6 +6,7 @@ import { rateLimit } from 'express-rate-limit';
 import { config } from './config';
 import { logger } from './utils/logger';
 import { connectDB } from './config/db.config';
+import router from './routes/index'
 
 export const createApp = async (): Promise<Application> => {
   // 1. Initialize Express app
@@ -48,23 +49,25 @@ export const createApp = async (): Promise<Application> => {
     app.use(morgan('dev'));
   }
 
-  // 6. Basic Routes (No imported routes)
-  app.get('/', (req: Request, res: Response) => {
-    res.status(200).json({
-      message: 'API Service',
-      version: '1.0.0',
-      dbStatus: 'Connected' // To verify DB connection
-    });
-  });
+  // // 6. Basic Routes (No imported routes)
+  // app.get('/', (req: Request, res: Response) => {
+  //   res.status(200).json({
+  //     message: 'API Service',
+  //     version: '1.0.0',
+  //     dbStatus: 'Connected' // To verify DB connection
+  //   });
+  // });
 
-  app.get('/health', (req: Request, res: Response) => {
-    res.status(200).json({
-      status: 'ok',
-      timestamp: new Date().toISOString(),
-      environment: config.NODE_ENV,
-      dbStatus: 'Connected'
-    });
-  });
+  // app.get('/health', (req: Request, res: Response) => {
+  //   res.status(200).json({
+  //     status: 'ok',
+  //     timestamp: new Date().toISOString(),
+  //     environment: config.NODE_ENV,
+  //     dbStatus: 'Connected'
+  //   });
+  // });
+
+  app.use('/api/v1', router);
 
   // 7. 404 Handler
   app.use((req: Request, res: Response) => {
