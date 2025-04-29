@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { chatController } from '../controllers/chat.controller';
-import { validateRequest } from '../utils/validators';
-import { chatMessageSchema, sessionParamSchema } from '../types/chat.types';
+import { chatController } from '../controllers/chat.controller.js';
+import { validateRequest } from '../utils/validators.js'
+import { chatMessageSchema, sessionParamSchema } from '../types/chat.types.js';
 
 const router = Router();
 

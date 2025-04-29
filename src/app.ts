@@ -3,10 +3,10 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import { rateLimit } from 'express-rate-limit';
-import { config } from './config';
-import { logger } from './utils/logger';
-import { connectDB } from './config/db.config';
-import router from './routes/index'
+import { config } from './config/index.js';
+import { logger } from './utils/logger.js';
+import { connectDB } from './config/db.config.js';
+import router from './routes/index.js'
 
 export const createApp = async (): Promise<Application> => {
   // 1. Initialize Express app

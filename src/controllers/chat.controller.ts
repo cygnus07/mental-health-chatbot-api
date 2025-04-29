@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
-import { chatService } from '../services/chat.service';
-import { sendSuccess, sendNotFound } from '../utils/apiResponse';
-import { logger } from '../utils/logger';
-import { AppError } from '../middlewares/error.middleware';
-import { ChatMessageRequest, SessionParamRequest } from '../types/chat.types';
+import { chatService } from '../services/chat.service.js';
+import { sendSuccess, sendNotFound } from '../utils/apiResponse.js';
+import { logger } from '../utils/logger.js';
+import { AppError } from '../middleware/error.middleware.js';
+import { ChatMessageRequest, SessionParamRequest } from '../types/chat.types.js';
 
 /**
  * Chat controller for handling chat-related requests
