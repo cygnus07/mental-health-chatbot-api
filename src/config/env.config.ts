@@ -12,11 +12,11 @@ const envSchema = z.object({
 
   // MongoDB
   MONGODB_URI: z.string().min(1),
-  MONGODB_URI_TEST: z.string().optional(),
+  // MONGODB_URI_TEST: z.string().optional(),
 
-  // JWT
-  JWT_SECRET: z.string().min(1),
-  JWT_EXPIRES_IN: z.string().default('7d'),
+  // // JWT
+  // JWT_SECRET: z.string().min(1),
+  // JWT_EXPIRES_IN: z.string().default('7d'),
 
   // OpenAI
   OPENAI_API_KEY: z.string().min(1),
