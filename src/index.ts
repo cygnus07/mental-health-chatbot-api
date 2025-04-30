@@ -15,7 +15,7 @@ const startServer = async () => {
     const server = createServer(app);
 
     // 3. Start server
-    server.listen(config.PORT, () => {
+    server.listen(config.PORT, "0.0.0.0", () => {
       logger.info(`Server running in ${config.NODE_ENV} mode on port ${config.PORT}`);
       console.log(`Server ready: http://localhost:${config.PORT}`);
     });
