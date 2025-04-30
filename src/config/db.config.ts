@@ -15,9 +15,10 @@ const mongooseOptions: mongoose.ConnectOptions = {
 export const connectDB = async (): Promise<void> => {
   try {
     // Select URI based on environment
-    const dbURI = env.NODE_ENV === 'test' && env.MONGODB_URI_TEST
-      ? env.MONGODB_URI_TEST
-      : env.MONGODB_URI;
+    // const dbURI = env.NODE_ENV === 'test' && env.MONGODB_URI_TEST
+    //   ? env.MONGODB_URI_TEST
+    //   : env.MONGODB_URI;
+    const dbURI = env.MONGODB_URI;
 
     // Connect to MongoDB
     const conn = await mongoose.connect(dbURI, mongooseOptions);
