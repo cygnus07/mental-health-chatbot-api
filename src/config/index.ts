@@ -10,11 +10,11 @@ export const config = {
   
   // Database config
   MONGODB_URI: env.MONGODB_URI,
-  MONGODB_URI_TEST: env.MONGODB_URI_TEST,
+  // MONGODB_URI_TEST: env.MONGODB_URI_TEST,
   
-  // JWT config
-  JWT_SECRET: env.JWT_SECRET,
-  JWT_EXPIRES_IN: env.JWT_EXPIRES_IN,
+  // // JWT config
+  // JWT_SECRET: env.JWT_SECRET,
+  // JWT_EXPIRES_IN: env.JWT_EXPIRES_IN,
   
   // OpenAI config
   OPENAI_API_KEY: env.OPENAI_API_KEY,

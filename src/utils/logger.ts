@@ -1,5 +1,5 @@
 import winston from 'winston';
-import { env } from '../config/env.config.js';
+import { env } from '../config/env.config.js'
 
 // Define valid log levels
 type LogLevel = 'error' | 'warn' | 'info' | 'http' | 'verbose' | 'debug' | 'silly';
