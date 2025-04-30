@@ -16,12 +16,23 @@ export class ChatController {
     try {
       const { message, sessionId } = req.body as ChatMessageRequest;
       
-      // Generate response from OpenAI
-      const botResponse = await chatService.processMessage(sessionId, message);
+      // Handle session ID - create new one if not provided or invalid
+      let currentSessionId = sessionId;
       
-      // Get the current or newly created sessionId
-      const currentSessionId = sessionId || (await chatService.getChatHistory(sessionId as string))?.length ? 
-        sessionId : await chatService.createNewSession();
+      // If sessionId was provided, verify it exists
+      if (currentSessionId) {
+        const history = await chatService.getChatHistory(currentSessionId);
+        if (!history) {
+          // Invalid sessionId provided, create a new one
+          currentSessionId = await chatService.createNewSession();
+        }
+      } else {
+        // No sessionId provided, create new session
+        currentSessionId = await chatService.createNewSession();
+      }
+      
+      // Now we're sure currentSessionId is a valid string
+      const botResponse = await chatService.processMessage(currentSessionId, message);
       
       // Send successful response
       sendSuccess(res, {
@@ -35,7 +46,7 @@ export class ChatController {
       logger.error('Error in sendMessage controller:', error);
       next(error);
     }
-  }
+}
 
   /**
    * Get chat history for a specific session

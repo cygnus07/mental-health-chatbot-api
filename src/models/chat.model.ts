@@ -5,7 +5,7 @@ export type MessageRole = 'user' | 'assistant' | 'system';
 
 // Interface for a chat message
 export interface IMessage {
-  role: MessageRole;
+  role: 'system' | 'user' | 'assistant';
   content: string;
   timestamp: Date;
 }

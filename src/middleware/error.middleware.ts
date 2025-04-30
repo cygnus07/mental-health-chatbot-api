@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import mongoose from 'mongoose';
 import { ZodError } from 'zod';
-import { logger } from '../utils/logger';
-import { config } from '../config';
+import { logger } from '../utils/logger.js';
+import { config } from '../config/index.js';
 
 /**
  * Custom error class for API errors

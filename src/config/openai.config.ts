@@ -1,5 +1,5 @@
 import OpenAI from 'openai';
-import { env } from './env.config';
+import { env } from './env.config.js';
 
 // Initialize OpenAI client with API key from environment
 export const openai = new OpenAI({

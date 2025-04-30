@@ -1,6 +1,6 @@
-import { env } from './env.config';
-import { openai, CHAT_MODEL_PARAMS } from './openai.config';
-import { connectDB, disconnectDB } from './db.config';
+import { env } from './env.config.js';
+import { openai, CHAT_MODEL_PARAMS } from './openai.config.js';
+import { connectDB, disconnectDB } from './db.config.js';
 
 // Export all configuration from one place
 export const config = {

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
-import { env } from './env.config';
-import { logger } from '../utils/logger';
+import { env } from './env.config.js';
+import { logger } from '../utils/logger.js';
 
 // MongoDB connection options
 const mongooseOptions: mongoose.ConnectOptions = {

@@ -1,7 +1,7 @@
 import { createServer } from 'http';
-import { createApp } from './app';
-import { logger } from './utils/logger';
-import { config } from './config';
+import { createApp } from './app.js';
+import { logger } from './utils/logger.js';
+import { config } from './config/index.js';
 
 const startServer = async () => {
   try {

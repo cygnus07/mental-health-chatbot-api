@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { AnyZodObject, ZodError } from 'zod';
-import { sendValidationError } from './apiResponse';
+import { sendValidationError } from './apiResponse.js';
 
 /**
  * Middleware for validating request data against a Zod schema

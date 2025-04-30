@@ -3,6 +3,7 @@ import { ChatSession, IMessage } from '../models/chat.model.js';
 import { logger } from '../utils/logger.js';
 import { AppError } from '../middleware/error.middleware.js';
 import { randomUUID } from 'crypto';
+import { ChatCompletionMessageParam } from 'openai/resources';
 
 /**
  * Service for handling chat interactions with OpenAI
@@ -99,25 +100,25 @@ export class ChatService {
    * @param messages Array of chat messages
    * @returns Formatted conversation history for OpenAI
    */
-  private prepareConversationHistory(messages: IMessage[]): Array<{ role: string; content: string }> {
+  private prepareConversationHistory(messages: IMessage[]): ChatCompletionMessageParam[] {
     // Add system message at the beginning
-    const formattedMessages = [
+    const formattedMessages: ChatCompletionMessageParam[] = [
       {
         role: 'system',
         content: CHAT_MODEL_PARAMS.system_message,
       },
     ];
-
+  
     // Add conversation history (limit to last 10 messages to save tokens)
     const recentMessages = messages.slice(-10);
     
     recentMessages.forEach((msg) => {
       formattedMessages.push({
-        role: msg.role,
+        role: msg.role as 'system' | 'user' | 'assistant',
         content: msg.content,
       });
     });
-
+  
     return formattedMessages;
   }
 
